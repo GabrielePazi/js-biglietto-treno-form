@@ -14,6 +14,18 @@
     <div class="row justify-content-center">
       <div class="col-8 my-3">
 
+        <!-- Inserimento Nome -->
+        <div class="form-floating mb-3">
+          <input name="firstName" class="form-control" id="floatingInput">
+          <label for="floatingInput">Nome</label>
+        </div>
+
+        <!-- Inserimento Cognome -->
+        <div class="form-floating mb-3">
+          <input name="lastName" class="form-control" id="floatingInput">
+          <label for="floatingInput">Cognome</label>
+        </div>
+
         <!-- Inserimento kilometri -->
         <div class="form-floating mb-3">
           <input name="kilometers" class="form-control" id="floatingInput">
@@ -21,14 +33,41 @@
         </div>
 
         <!-- inserimento età -->
-        <div class="form-floating">
-          <input name="age" class="form-control" id="floatingPassword">
-          <label for="floatingPassword">Età</label>
-        </div>
+        <select id="selectAge" class="form-select" aria-label="Default select example">
+          <option value="underAge">Minorenne</option>
+          <option value="middleAge">Maggiorenne</option>
+          <option value="overAge">Over 65</option>
+        </select>
 
         <!-- Button -->
         <div class="col-12 my-3">
-          <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+          <button type="submit" class="btn btn-primary">Genera</button>
+        </div>
+
+        <div class="card w-100 ticket d-none">
+          <div class="card-body">
+            <h5 class="card-title">Il tuo Biglietto</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Cognome</th>
+                  <th scope="col">N Carrozza</th>
+                  <th scope="col">Sconto</th>
+                  <th scope="col">Prezzo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="table-name"></td>
+                  <td class="table-lastname"></td>
+                  <td class="table-wagon"></td>
+                  <td class="table-coupon"></td>
+                  <td class="table-price"></td>
+                </tr>
+              </tbody>
+            </table>          
+          </div>
         </div>
       </div>
     </div>

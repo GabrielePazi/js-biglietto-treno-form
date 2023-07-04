@@ -1,27 +1,35 @@
-
-/* di base il "document." ti serve a recuperare degli elementi dall'html, 
-quello che c'è dopo è solo il modo in cui recuperi questi elementi
-(in base all'id, alla classe oppure ad altre cose come in questo caso)*/
-
+const userNameInput = document.querySelector("[name='firstName']");
+const userLastNameInput = document.querySelector("[name='lastName']");
 const tripKmInput = document.querySelector("[name='kilometers']");
-const userAgeInput = document.querySelector("[name='age']");
-const btnSubmit = document.querySelector("[type='submit']");
+const userAgeInput = document.getElementById("selectAge");
+const btnConfirm = document.querySelector("[type='submit']");
 
-btnSubmit.addEventListener("click", function() {
+
+btnConfirm.addEventListener("click", function() {
+
+    document.querySelector(".ticket").classList.replace("d-none", "d-block");
+
+    const name = userNameInput.value;
+    const lastName = userLastNameInput.value;
     const km = tripKmInput.value;
-    const age = userAgeInput.value;
+    const ageSelectIndex = userAgeInput.selectedIndex;
 
     let price = (km * 0.21).toFixed(2);
 
     let coupon = 0;
 
-    if (age <= 18) {
+    if (ageSelectIndex === 0) {
       coupon = ((price * 20) / 100).toFixed(2);
-    } else if (age > 65){
+      price = (price - coupon).toFixed(2);
+    } else if (ageSelectIndex === 2){
       coupon = ((price * 40) / 100).toFixed(2);
+      price = (price - coupon).toFixed(2);
     }
 
-    console.log("Hai uno sconto equivalente a ", coupon, "€, quindi il costo del biglietto è:", (price - coupon).toFixed(2), "€");
+    document.querySelector(".table-name").innerHTML = name;
+    document.querySelector(".table-lastname").innerHTML = lastName;
+    document.querySelector(".table-wagon").innerHTML = Math.floor((Math.random() * 20) + 1 );
+    document.querySelector(".table-coupon").innerHTML = "- " + coupon;
+    document.querySelector(".table-price").innerHTML = price + "€";
   }
 )
-
