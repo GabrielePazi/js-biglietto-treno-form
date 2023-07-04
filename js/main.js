@@ -2,7 +2,8 @@ const userNameInput = document.querySelector("[name='firstName']");
 const userLastNameInput = document.querySelector("[name='lastName']");
 const tripKmInput = document.querySelector("[name='kilometers']");
 const userAgeInput = document.getElementById("selectAge");
-const btnConfirm = document.querySelector("[type='submit']");
+const btnConfirm = document.querySelector(".btn-submit");
+const btnDelete = document.querySelector(".btn-delete");
 
 
 btnConfirm.addEventListener("click", function() {
@@ -31,5 +32,13 @@ btnConfirm.addEventListener("click", function() {
     document.querySelector(".table-wagon").innerHTML = Math.floor((Math.random() * 20) + 1 );
     document.querySelector(".table-coupon").innerHTML = "- " + coupon;
     document.querySelector(".table-price").innerHTML = price + "€";
+  }
+)
+
+btnDelete.addEventListener( "click", function() {
+    userNameInput.value = "";
+    userLastNameInput.value = "";
+    tripKmInput.value = "";
+    userAgeInput.value = "";
   }
 )
