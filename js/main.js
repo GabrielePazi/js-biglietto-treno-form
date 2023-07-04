@@ -19,10 +19,10 @@ btnConfirm.addEventListener("click", function() {
 
     let coupon = 0;
 
-    if (ageSelectIndex === 0) {
+    if (ageSelectIndex === 1) {
       coupon = ((price * 20) / 100).toFixed(2);
       price = (price - coupon).toFixed(2);
-    } else if (ageSelectIndex === 2){
+    } else if (ageSelectIndex === 3){
       coupon = ((price * 40) / 100).toFixed(2);
       price = (price - coupon).toFixed(2);
     }
@@ -36,6 +36,9 @@ btnConfirm.addEventListener("click", function() {
 )
 
 btnDelete.addEventListener( "click", function() {
+
+    document.querySelector(".ticket").classList.replace("d-block", "d-none");
+
     userNameInput.value = "";
     userLastNameInput.value = "";
     tripKmInput.value = "";
